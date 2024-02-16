@@ -1,0 +1,27 @@
+﻿
+
+<br/>
+
+<hr/>
+
+<div class="text-success h3">@Title</div> 
+
+<button @onclick="GenerateNumber" class="btn btn-dark">Generate Lucky Number</button>
+
+@if (LuckyNumber > 0)
+{
+    <p class="p-2">Lucky Number - @LuckyNumber</p>
+}
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    public int LuckyNumber { get; set; } = 0;
+
+    private void GenerateNumber()
+    {
+        Random rnd = new();
+        LuckyNumber = rnd.Next(1, 100);
+    }
+}
